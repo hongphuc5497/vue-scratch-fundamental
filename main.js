@@ -5,9 +5,7 @@ const app = new Vue({
 	},
 	computed: {
 		totalProducts() {
-			return this.products.reduce((sum, product) => {
-				return sum + product.quantity;
-			}, 0);
+			return this.products.reduce((sum, product) => sum + product.quantity, 0);
 		},
 	},
 	created() {

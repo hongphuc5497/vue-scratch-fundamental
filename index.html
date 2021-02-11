@@ -11,7 +11,8 @@
 
 			<ul>
 				<li v-for="product in products">
-					{{ product.quantity }} {{ product.name }}
+					<input type="number" v-model.number="product.quantity" />
+					{{ product.name }}
 
 					<span v-if="product.quantity === 0"> - OUT OF STOCK </span>
 
