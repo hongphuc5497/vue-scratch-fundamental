@@ -5,7 +5,8 @@ var app = new Vue({
     image: {
       src: './images/green_sock_img.jpg',
       alt: 'Product Image'
-    }
+    },
+    inStock: true
 	},
 });
 
@@ -17,3 +18,6 @@ var app = new Vue({
 
 // Attribute Binding - v-bind:src='expression'
 // Shorthand - :src='expression'
+
+// Conditional Rendering
+// v-if, v-else-if, v-else
