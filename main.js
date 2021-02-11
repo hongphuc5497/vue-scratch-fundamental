@@ -15,12 +15,26 @@ var app = new Vue({
 			{
 				variantId: 123,
 				variantColor: 'green',
+				variantImage: './images/green_sock_img.jpg',
 			},
 			{
 				variantId: 456,
 				variantColor: 'blue',
+				variantImage: './images/blue_sock_img.jpg',
 			},
 		],
+		cart: 0,
+	},
+	methods: {
+		addToCart() {
+			this.cart += 1;
+		},
+		updateProduct(variantImage) {
+			this.image.src = variantImage;
+		},
+		removeFromCart() {
+			this.cart -= 1;
+		},
 	},
 });
 
@@ -30,11 +44,14 @@ var app = new Vue({
 
 // Reactive
 
-// Attribute Binding - v-bind:src='expression'
-// Shorthand - :src='expression'
+// Attribute Binding
+// v-bind:src='expression', shorthand - :src='expression'
 
 // Conditional Rendering
 // v-if, v-else-if, v-else, v-show
 
 // List Rendering
 // v-for, :key,
+
+// Event Handling
+// v-on:event, methods attribute, shorthand - @click, @mouseover, @submit, @keyup, ...
