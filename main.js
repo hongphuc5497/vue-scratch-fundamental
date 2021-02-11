@@ -9,7 +9,18 @@ var app = new Vue({
 			target: '_blank',
 		},
 		inventory: 120,
-    onSale: true
+		onSale: true,
+		details: ['80% cotton', '20 polyester', 'Gender-neutral'],
+		variants: [
+			{
+				variantId: 123,
+				variantColor: 'green',
+			},
+			{
+				variantId: 456,
+				variantColor: 'blue',
+			},
+		],
 	},
 });
 
@@ -24,3 +35,6 @@ var app = new Vue({
 
 // Conditional Rendering
 // v-if, v-else-if, v-else, v-show
+
+// List Rendering
+// v-for, :key,
