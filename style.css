@@ -6,7 +6,7 @@ body {
 
 .nav-bar {
 	background: linear-gradient(-90deg, #84cf6a, #16c0b0);
-	height: 60px;
+	height: 75px;
 	margin-bottom: 15px;
 }
 
@@ -40,10 +40,13 @@ img {
 }
 
 .cart {
+  margin-top: 5px;
 	margin-right: 25px;
 	float: right;
-	border: 1px solid #d8d8d8;
+	border: 1px solid #ecf0f1;
 	padding: 5px 20px;
+  background-color: #61ca80;
+  color: #ecf0f1;
 }
 
 button {
@@ -54,6 +57,12 @@ button {
 	height: 40px;
 	width: 100px;
 	font-size: 14px;
+}
+
+.btn-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .disabledButton {
