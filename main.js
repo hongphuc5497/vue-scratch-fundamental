@@ -8,7 +8,7 @@ var app = new Vue({
 			link: 'https://ww.google.com',
 			target: '_blank',
 		},
-		inventory: 120,
+		inStock: true,
 		onSale: true,
 		details: ['80% cotton', '20 polyester', 'Gender-neutral'],
 		variants: [
@@ -55,3 +55,6 @@ var app = new Vue({
 
 // Event Handling
 // v-on:event, methods attribute, shorthand - @click, @mouseover, @submit, @keyup, ...
+
+// Class & Style Binding
+// :class, :style
