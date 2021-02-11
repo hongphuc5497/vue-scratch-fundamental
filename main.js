@@ -69,17 +69,25 @@ Vue.component('product', {
 					variantId: 456,
 					variantColor: 'blue',
 					variantImage: './images/blue_sock_img.jpg',
-					variantQuantity: 0,
+					variantQuantity: 30,
 				},
 			],
 		};
 	},
 	methods: {
 		addToCart() {
-			this.$emit('add-to-cart');
+			this.$emit(
+				'add-to-cart',
+				'add',
+				this.variants[this.selectedVariant].variantId
+			);
 		},
 		removeFromCart() {
-			this.$emit('remove-from-cart');
+			this.$emit(
+				'remove-from-cart',
+				'remove',
+				this.variants[this.selectedVariant].variantId
+			);
 		},
 		updateProduct(index) {
 			this.selectedVariant = index;
@@ -113,14 +121,14 @@ var app = new Vue({
 	el: '#app',
 	data: {
 		premium: true,
-		cart: 0,
+		cart: [],
 	},
 	methods: {
-		updateCart(type) {
+		updateCart(type, id) {
 			if (type == 'add') {
-				this.cart += 1;
+				this.cart.push(id);
 			} else if (type == 'remove') {
-				this.cart -= 1;
+				this.cart.splice(this.cart.indexOf(id), 1);
 			}
 		},
 	},
