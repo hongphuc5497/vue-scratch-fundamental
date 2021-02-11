@@ -8,7 +8,11 @@
 	<body>
 		<div id="app">
 			<ul>
-				<li v-for="product in products">{{ product }}</li>
+				<li v-for="product in products">
+					{{ product.quantity }} {{ product.name }}
+
+					<span v-if="product.quantity === 0"> - OUT OF STOCK </span>
+				</li>
 			</ul>
 		</div>
 	</body>
