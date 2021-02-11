@@ -1,10 +1,11 @@
 var app = new Vue({
 	el: '#app',
 	data: {
-		product: {
-      name: 'Boot',
-      description: 'This is a boot'
-    },
+		product: 'Socks',
+    image: {
+      src: './images/green_sock_img.jpg',
+      alt: 'Product Image'
+    }
 	},
 });
 
@@ -13,3 +14,6 @@ var app = new Vue({
 // {{ }} - Vue Expression
 
 // Reactive
+
+// Attribute Binding - v-bind:src='expression'
+// Shorthand - :src='expression'
