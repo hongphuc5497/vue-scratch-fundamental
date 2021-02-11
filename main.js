@@ -1,4 +1,10 @@
 Vue.component('product', {
+	props: {
+		premium: {
+			type: Boolean,
+			required: true,
+		},
+	},
 	template: `
   <div class="product">
     <div class="product-image">
@@ -12,6 +18,8 @@ Vue.component('product', {
 
       <p v-if="inStock">In Stock</p>
       <p v-else :class="{ outStock: !inStock }">Out of Stock</p>
+
+      <p>Shipping: {{ shipping }} </p>
 
       <span v-show="onSale && inStock">On Sale!</span>
 
@@ -86,9 +94,9 @@ Vue.component('product', {
 		title() {
 			if (this.onSale) {
 				return this.brand + ' ' + this.product;
-			} else {
-				return this.product;
 			}
+
+			return this.product;
 		},
 		image() {
 			return this.variants[this.selectedVariant].variantImage;
@@ -96,11 +104,21 @@ Vue.component('product', {
 		inStock() {
 			return this.variants[this.selectedVariant].variantQuantity;
 		},
+		shipping() {
+			if (this.premium) {
+				return 'Free';
+			}
+
+			return 2.99;
+		},
 	},
 });
 
 var app = new Vue({
 	el: '#app',
+	data: {
+		premium: true,
+	},
 });
 
 // Vue Instance
