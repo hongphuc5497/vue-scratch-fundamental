@@ -14,13 +14,13 @@
 
 			<div class="product">
 				<div class="product-image">
-					<a :href="image.link" :target="image.target">
-						<img v-bind:src="image.src" :alt="image.alt" />
+					<a :href="imageProduct.link" :target="imageProduct.target">
+						<img v-bind:src="image" :alt="imageProduct.alt" />
 					</a>
 				</div>
 
 				<div class="product-info">
-					<h1>{{ product }}</h1>
+					<h1>{{ title }}</h1>
 
 					<p v-if="inStock">In Stock</p>
 					<p v-else :class="{ outStock: !inStock }">Out of Stock</p>
@@ -32,11 +32,11 @@
 					</ul>
 
 					<div
-						v-for="variant in variants"
+						v-for="(variant, index) in variants"
 						:key="variant.variantId"
 						class="color-box"
 						:style="{ backgroundColor: variant.variantColor }"
-						@mouseover="updateProduct(variant.variantImage)"
+						@mouseover="updateProduct(index)"
 					></div>
 
 					<button

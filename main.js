@@ -2,25 +2,27 @@ var app = new Vue({
 	el: '#app',
 	data: {
 		product: 'Socks',
-		image: {
-			src: './images/green_sock_img.jpg',
+		brand: 'Nike',
+		imageProduct: {
 			alt: 'Product Image',
 			link: 'https://ww.google.com',
 			target: '_blank',
 		},
-		inStock: true,
 		onSale: true,
 		details: ['80% cotton', '20 polyester', 'Gender-neutral'],
+		selectedVariant: 0,
 		variants: [
 			{
 				variantId: 123,
 				variantColor: 'green',
 				variantImage: './images/green_sock_img.jpg',
+				variantQuantity: 20,
 			},
 			{
 				variantId: 456,
 				variantColor: 'blue',
 				variantImage: './images/blue_sock_img.jpg',
+				variantQuantity: 0,
 			},
 		],
 		cart: 0,
@@ -29,11 +31,26 @@ var app = new Vue({
 		addToCart() {
 			this.cart += 1;
 		},
-		updateProduct(variantImage) {
-			this.image.src = variantImage;
+		updateProduct(index) {
+			this.selectedVariant = index;
 		},
 		removeFromCart() {
 			this.cart -= 1;
+		},
+	},
+	computed: {
+		title() {
+			if (this.onSale) {
+				return this.brand + ' ' + this.product;
+			} else {
+				return this.product;
+			}
+		},
+		image() {
+			return this.variants[this.selectedVariant].variantImage;
+		},
+		inStock() {
+			return this.variants[this.selectedVariant].variantQuantity;
 		},
 	},
 });
@@ -58,3 +75,7 @@ var app = new Vue({
 
 // Class & Style Binding
 // :class, :style
+
+// Computed Properties
+
+
